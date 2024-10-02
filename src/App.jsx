@@ -1,4 +1,5 @@
 import { Button } from "./components/button"
+import { Card } from "./components/card"
 
 function App() {
   const users = [{
@@ -52,18 +53,9 @@ function App() {
 
         {users.map((item, index) => {
           return (
-            <div key={index} className="shadow-md rounded-lg w-80 border bg-slate-50 p-8 text-center">
-              <h1 className="text-2xl font-bold text-slate-800">
-                {item.name}
-              </h1>
-              <p className="text-lg text-slate-600">
-                {item.email}
-              </p>
-            </div>
+            <Card key={index} name={item.name} email={item.email} />
           )
         })}
-
-
       </form>
     </div>
   )
