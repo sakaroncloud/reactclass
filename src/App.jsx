@@ -1,63 +1,26 @@
-import { Button } from "./components/button"
-import { Card } from "./components/card"
+import { useState } from "react"
 
 function App() {
-  const users = [{
-    name: "chirinjivi",
-    email: "chirinjivi@gmail.com"
-  },
-  {
-    name: "sakar",
-    email: "sakar@gmail.com"
-  }
-  ]
+
+  const [counter, setCounter] = useState(1)
+
+
+
   return (
-    <div>
-      <form>
-        <input type="text" placeholder="First Name" /> <br />
-        <input type="text" placeholder="Email" /> <br />
-        <Button label="Submit" className="text-orange-500" />
-        <Button label="Click Here" className="text-red-500 bg-purple-700" />
-        <Button label="Read More" />
+    <div className="h-screen bg-slate-100 w-full flex items-center justify-center">
+      <div className="max-w-3xl flex gap-3 items-center justify-center w-full p-6 rounded-xl bg-gray-200 shadow border border-gray-200">
 
-        {/* card  zero*/}
-        <div className="shadow-md rounded-lg w-80 border bg-slate-50 p-8 text-center">
-          <h1 className="text-2xl font-bold text-slate-800">
-            {users[0].name}
-          </h1>
-          <p className="text-lg text-slate-600">
-            {users[0].email}
-          </p>
-        </div>
+        {/* Increase Button */}
+        <button onClick={() => setCounter(counter - 1)} className="px-4 py-2 bg-red-500 text-white rounded-lg">Decrease</button>
+        <span className="inline-block px-4 py-2 bg-white rounded-lg font-semibold">
+          {counter}
+        </span>
 
-        {/* card zero ends */}
-
-
-        {/* card  one*/}
-        <div className="shadow-md rounded-lg w-80 border bg-slate-50 p-8 text-center">
-          <h1 className="text-2xl font-bold text-slate-800">
-            {users[1].name}
-          </h1>
-          <p className="text-lg text-slate-600">
-            {users[1].email}
-          </p>
-        </div>
-
-        {/* card one ends */}
-
-
-        {/* let's map the array */}
-
-        <p className="my-20">Array is mapping</p>
-
-
-        {users.map((item, index) => {
-          return (
-            <Card key={index} name={item.name} email={item.email} />
-          )
-        })}
-      </form>
+        {/* Increase Button */}
+        <button onClick={() => setCounter(counter + 1)} className="px-4 py-2 bg-green-500 text-white rounded-lg">Increase</button>
+      </div>
     </div>
+
   )
 }
 
